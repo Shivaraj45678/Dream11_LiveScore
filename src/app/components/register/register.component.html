@@ -1,0 +1,21 @@
+<div class="container">
+  <h2>Registration Form</h2>
+  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="name">Name</label>
+      <input id="name" pInputText formControlName="name" type="text" />
+      <p-message *ngIf="submitted && formControls['name'].errors" severity="error" text="Name is required and must be at least 2 characters."></p-message>
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <input id="email" pInputText formControlName="email" type="email" />
+      <p-message *ngIf="submitted && formControls['email'].errors" severity="error" text="Valid email is required."></p-message>
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input id="password" pPassword formControlName="password" />
+      <p-message *ngIf="submitted && formControls['password'].errors" severity="error" text="Password is required and must be at least 6 characters."></p-message>
+    </div>
+    <button pButton type="submit" label="Register"></button>
+  </form>
+</div>
