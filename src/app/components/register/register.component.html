@@ -3,19 +3,25 @@
   <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
     <div>
       <label for="name">Name</label>
-      <input id="name" pInputText formControlName="name" type="text" />
-      <p-message *ngIf="submitted && formControls['name'].errors" severity="error" text="Name is required and must be at least 2 characters."></p-message>
+      <input id="name" formControlName="name" type="text" />
+      <div *ngIf="submitted && formControls['name'].errors" class="error">
+        Name is required and must be at least 2 characters.
+      </div>
     </div>
     <div>
       <label for="email">Email</label>
-      <input id="email" pInputText formControlName="email" type="email" />
-      <p-message *ngIf="submitted && formControls['email'].errors" severity="error" text="Valid email is required."></p-message>
+      <input id="email" formControlName="email" type="email" />
+      <div *ngIf="submitted && formControls['email'].errors" class="error">
+        Valid email is required.
+      </div>
     </div>
     <div>
       <label for="password">Password</label>
-      <input id="password" pPassword formControlName="password" />
-      <p-message *ngIf="submitted && formControls['password'].errors" severity="error" text="Password is required and must be at least 6 characters."></p-message>
+      <input id="password" formControlName="password" type="password" />
+      <div *ngIf="submitted && formControls['password'].errors" class="error">
+        Password is required and must be at least 6 characters.
+      </div>
     </div>
-    <button pButton type="submit" label="Register"></button>
+    <button type="submit">Register</button>
   </form>
 </div>

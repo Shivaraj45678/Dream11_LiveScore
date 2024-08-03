@@ -10,13 +10,13 @@ export class UserService {
   constructor(private http:HttpClient) { }
 
   public addUser(user:any){
-const url = 'http://localhost:3001/addUser'
+const url = 'https://backend-cric-3.onrender.com/addUser'
 return this.http.post(url,user)
   }
 
 
   public getAllUser(){
-    const url='http://localhost:3001/getAllUsers'
+    const url='https://backend-cric-3.onrender.com/getAllUsers'
     return this.http.get(url)
   }
   private handleError(error: HttpErrorResponse) {

@@ -1,17 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../../services/user.service';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrl: './register.component.css'
+  styleUrls: ['./register.component.css'] // Corrected to styleUrls
 })
-export class RegisterComponent implements OnInit{
+export class RegisterComponent implements OnInit {
   registrationForm!: FormGroup;
   submitted = false;
   user: any;
 
-  constructor(private formBuilder: FormBuilder,private userService:UserService) { }
+  constructor(private formBuilder: FormBuilder, private userService: UserService) {}
 
   ngOnInit(): void {
     this.registrationForm = this.formBuilder.group({
@@ -28,13 +29,12 @@ export class RegisterComponent implements OnInit{
 
     if (this.registrationForm.invalid) {
       return;
-    }else{
-      this.user=this.registrationForm.value
+    } else {
+      this.user = this.registrationForm.value;
       console.log('Form Submitted!', this.registrationForm.value);
-      this.userService.addUser(this.user).subscribe((res)=>{
-        console.log(res)
-      })
+      this.userService.addUser(this.user).subscribe((res) => {
+        console.log(res);
+      });
     }
-
   }
 }
